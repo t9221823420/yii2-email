@@ -47,11 +47,11 @@ final class Mailer extends \yii\swiftmailer\Mailer
 			$this->_send_from = null;
 		}
 		
+		parent::setTransport( $config );
+		
 		if( $close ){
 			$this->getTransport()->stop();
 		}
-		
-		parent::setTransport( $config );
 		
 		return $this;
 	}
