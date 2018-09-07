@@ -11,7 +11,7 @@ namespace yozh\email\components;
 use yozh\email\models\EmailAccount;
 use yii\base\InvalidParamException;
 use roopz\imap\Imap;
-use yozh\base\components\utils\ArrayHelper;
+use yozh\base\components\helpers\ArrayHelper;
 
 class Client
 {
