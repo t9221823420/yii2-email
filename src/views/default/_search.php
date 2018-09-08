@@ -7,4 +7,4 @@
  */
 
 /** @var \yii\web\View $this */
-include( Yii::getAlias($parentViewPath . '/_search.php') );
+include( Yii::getAlias($parentViewPath . '/' . basename( __FILE__ ) ) );
