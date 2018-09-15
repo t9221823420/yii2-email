@@ -42,7 +42,7 @@ class m000000_000000_email_account_table_dev extends Migration
 		];
 		
 		$this->alterTable( [
-			'mode' => self::ALTER_MODE_IGNORE,
+			'mode' => static::ALTER_MODE_IGNORE,
 		] );
 		
 		return false;
