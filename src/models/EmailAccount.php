@@ -4,7 +4,7 @@ namespace yozh\email\models;
 
 use Yii;
 
-use yozh\crud\models\BaseModel as ActiveRecord;
+use yozh\crud\models\BaseActiveRecord as ActiveRecord;
 
 /**
  * This is the model class for table "email_account".
