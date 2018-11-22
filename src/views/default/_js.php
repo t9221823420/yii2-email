@@ -11,15 +11,7 @@ use yii\helpers\Url;
 	
 	<?php switch($section) : case 'onload' : ?>
 	
-	$( function () {
-		
-		/*
-			$(document).on('change', 'select.yozh-nested-select', function () {
-				$($(this).data('selector')).load($(this).attr('url'), 'value=' + $(this).val());
-			});
-		*/
-		
-	} );
+	$( function () {} );
 	
 	<?php break; case 'template' : ?>
 	
