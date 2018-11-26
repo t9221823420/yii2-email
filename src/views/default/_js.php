@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-// <?php $this->registerJs( $this->render('_js.php', ['section' => 'onload']), $this::POS_END ); ?>
+
 
 ?>
 <?php if( $printTags ?? false ) : ?>
