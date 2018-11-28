@@ -10,7 +10,8 @@ class m000000_000000_000_email_account_table_dev extends Migration
 {
 	protected static $_table;
 	
-	public function __construct( array $config = [] ) {
+	public function __construct( array $config = [] )
+	{
 		
 		static::$_table = static::$_table ?? EmailAccount::getRawTableName();
 		
@@ -18,15 +19,18 @@ class m000000_000000_000_email_account_table_dev extends Migration
 		
 	}
 	
-	/**
-	 * {@inheritdoc}
-	 */
-	public function safeUp()
+	public function safeUp( $params = [] )
 	{
-		
+		parent::safeUp( [
+			'mode' => 0 ? static::ALTER_MODE_UPDATE : static::ALTER_MODE_IGNORE,
+		] );
+	}
+	
+	public function getColumns( $columns = [] )
+	{
 		$protocols = [ 'No', 'SSL', 'TLS' ];
 		
-		static::$_columns = [
+		return parent::getColumns( [
 			'id'                     => $this->primaryKey(),
 			'title'                  => $this->string()->notNull(),
 			'email'                  => $this->string()->notNull(),
@@ -42,20 +46,13 @@ class m000000_000000_000_email_account_table_dev extends Migration
 			'out_port'            => $this->integer()->null(),
 			'out_encryption_type' => $this->enum( $protocols )->notNull()->defaultValue( 'No' ),
 			
-			'out_send_from'    => $this->string()->null()->after( 'out_encryption_type' ),
-			'out_username' => $this->string()->null()->after( 'out_send_from' ),
-			'out_password' => $this->string()->null()->after( 'out_username' ),
+			'out_send_from' => $this->string()->null()->after( 'out_encryption_type' ),
+			'out_username'  => $this->string()->null()->after( 'out_send_from' ),
+			'out_password'  => $this->string()->null()->after( 'out_username' ),
 			
 			'use_incoming_credentials' => $this->boolean()->defaultValue( true )->after( 'out_password' ),
 			'enabled'                  => $this->boolean()->defaultValue( true )->after( 'use_incoming_credentials' ),
-		];
-		
-		$this->alterTable( [
-			'mode' => static::ALTER_MODE_IGNORE,
 		] );
-		
-		return false;
-		
 	}
 	
 	
