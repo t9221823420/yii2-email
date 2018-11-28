@@ -6,7 +6,7 @@ use yozh\email\models\EmailAccount;
 /**
  * Class m180301_142414_add_column_to_properties_table
  */
-class m000000_000000_000_email_account_table_dev extends Migration
+class m000000_000000_000_yozh_email_account_table_dev extends Migration
 {
 	protected static $_table;
 	

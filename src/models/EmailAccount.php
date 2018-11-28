@@ -31,7 +31,7 @@ class EmailAccount extends ActiveRecord
 	 */
 	public static function tableName()
 	{
-		return '{{%email_account}}';
+		return '{{%yozh_email_account}}';
 	}
 	
 	/**
