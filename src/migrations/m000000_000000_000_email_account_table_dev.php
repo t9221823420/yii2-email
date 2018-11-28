@@ -1,13 +1,22 @@
 <?php
 
 use yozh\base\components\db\Migration;
+use yozh\email\models\EmailAccount;
 
 /**
  * Class m180301_142414_add_column_to_properties_table
  */
-class m000000_000000_email_account_table_dev extends Migration
+class m000000_000000_000_email_account_table_dev extends Migration
 {
-	protected static $_table = 'email_account';
+	protected static $_table;
+	
+	public function __construct( array $config = [] ) {
+		
+		static::$_table = static::$_table ?? EmailAccount::getRawTableName();
+		
+		parent::__construct( $config );
+		
+	}
 	
 	/**
 	 * {@inheritdoc}
