@@ -6,7 +6,7 @@ use yozh\email\models\EmailAccount;
 /**
  * Class m180301_142414_add_column_to_properties_table
  */
-class m000000_000000_000_yozh_email_account_table_dev extends Migration
+class m000000_000000_yozh_email_account_table_dev extends Migration
 {
 	protected static $_table;
 	
@@ -21,9 +21,7 @@ class m000000_000000_000_yozh_email_account_table_dev extends Migration
 	
 	public function safeUp( $params = [] )
 	{
-		parent::safeUp( [
-			'mode' => 0 ? static::ALTER_MODE_UPDATE : static::ALTER_MODE_IGNORE,
-		] );
+		parent::safeUp( $params );
 	}
 	
 	public function getColumns( $columns = [] )
