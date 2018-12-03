@@ -21,7 +21,7 @@ class m000000_000000_yozh_email_account_table_dev extends Migration
 	
 	public function safeUp( $params = [] )
 	{
-		parent::safeUp( $params );
+		return parent::safeUp( $params );
 	}
 	
 	public function getColumns( $columns = [] )
