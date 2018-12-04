@@ -46,17 +46,28 @@ class EmailAccount extends ActiveRecord
 	/**
 	 * @inheritdoc
 	 */
-	public function rules()
+	public function rules( $rules = [], $update = false )
 	{
-		return [
-			[ [ 'title', 'email', 'username', 'password', 'in_server', 'in_port' ], 'required' ],
-			[ [ 'email', 'out_send_from', ], 'email' ],
-			[ [ 'enabled', 'require_authentication', 'use_incoming_credentials', ], 'boolean' ],
-			[ [ 'in_port', 'out_port', ], 'integer' ],
-			[ [ 'in_encryption_type', 'out_encryption_type' ], 'string' ],
-			[ [ 'title', 'username', 'password', 'in_server', 'out_server' ], 'string', 'max' => 255 ],
-			[ [ 'out_username', 'out_password' ], 'string', 'max' => 255 ],
-		];
+		static $_rules;
+		
+		if( !$_rules || $update ) {
+			
+			$_rules = parent::rules( \yozh\base\components\validators\Validator::merge( [
+				
+				[ [ 'title', 'email', 'username', 'password', 'in_server', 'in_port' ], 'required' ],
+				[ [ 'email', 'out_send_from', ], 'email' ],
+				[ [ 'enabled', 'require_authentication', 'use_incoming_credentials', ], 'boolean' ],
+				[ [ 'in_port', 'out_port', ], 'integer' ],
+				[ [ 'in_encryption_type', 'out_encryption_type' ], 'string' ],
+				[ [ 'title', 'username', 'password', 'in_server', 'out_server' ], 'string', 'max' => 255 ],
+				[ [ 'out_username', 'out_password' ], 'string', 'max' => 255 ],
+			
+			], $rules ) );
+			
+		}
+		
+		return $_rules;
+		
 	}
 	
 	/**
