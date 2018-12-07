@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 include __DIR__ . '/_header.php';
 
-include( Yii::getAlias($parentViewPath . '/' . basename( __FILE__ ) ) );
+include( Yii::getAlias($parentViewPath . DIRECTORY_SEPARATOR  . basename( __FILE__ ) ) );
 ?>
 <div class="<?= "$modelId-$actionId" ?>">
 
